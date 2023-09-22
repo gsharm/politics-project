@@ -20,4 +20,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('sunak-v-starmer/', views.serve_markdown, name='serve_markdown'),
+    path('/', views.serve_markdown, name='serve_markdown'),
 ]
