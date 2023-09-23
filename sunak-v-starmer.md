@@ -30,3 +30,5 @@
 * Education: Starmer has supported the abolition of tuition fees and has promised to invest in lifelong learning.
 
 * Missions: The Labour Party has outlined five bold missions for a better Britain, which include creating a million green jobs, providing free school meals for all primary school children, and ending rough sleeping within five years.
+
+(Testing)
