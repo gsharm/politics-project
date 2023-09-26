@@ -2,10 +2,29 @@
 import markdown
 from django.http import HttpResponse
 
-def serve_markdown(request):
+def serve_markdown_index(request):
     # Read markdown content
-    with open("sunak-v-starmer.md", "r") as file:
+    with open("index.md", "r") as file:
         md_content = file.read()
+
+    # Convert to HTML
+    html_content = markdown.markdown(md_content)
+
+    return HttpResponse(html_content)
+
+def serve_markdown_mp(request, mp_name=None):
+    # Determine the markdown filename based on the URL path
+    if mp_name:
+        file_name = f"{mp_name}.md"
+    else:
+        file_name = "not_found.md"  # You can set a default file name here if you like
+
+    # Try reading markdown content
+    try:
+        with open(file_name, "r") as file:
+            md_content = file.read()
+    except FileNotFoundError:
+        return render(request, '404.html', status=404)  # assuming you have a 404.html template
 
     # Convert to HTML
     html_content = markdown.markdown(md_content)
