@@ -8,10 +8,15 @@ def serve_markdown_index(request):
     mps = list_mps()
     html_links = [f'<a href="/mps/{mp}/">{mp.replace("-", " ").title()}</a><br>' for mp in mps]
     
-    html_content = f'''
-    <html>
+    full_html_content = f'''
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+        <title>MP Index</title>
     </head>
     <body>
         <h2>List of MPs:</h2>
@@ -19,7 +24,7 @@ def serve_markdown_index(request):
     </body>
     </html>
     '''
-    return HttpResponse(html_content)
+    return HttpResponse(full_html_content)
 
 def serve_markdown_mp(request, mp_name=None):
     # Determine the markdown filename based on the URL path
@@ -39,11 +44,19 @@ def serve_markdown_mp(request, mp_name=None):
 
     # Convert to HTML
     # Wrap the HTML content to include the CSS
+    # Convert the markdown content to HTML
     html_content = markdown.markdown(md_content)
+
+    # Wrap the HTML content
     full_html_content = f'''
-    <html>
+    <!DOCTYPE html>
+    <html lang="en">
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+        <title>MP Details</title>
     </head>
     <body>
         {html_content}
