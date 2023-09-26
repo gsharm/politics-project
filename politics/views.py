@@ -17,14 +17,15 @@ def serve_markdown_mp(request, mp_name=None):
     if mp_name:
         file_name = f"mps/{mp_name}.md"
     else:
-        file_name = "not_found.md"  # You can set a default file name here if you like
+        file_name = "mp_not_found.md"  # You can set a default file name here if you like
 
     # Try reading markdown content
     try:
         with open(file_name, "r") as file:
             md_content = file.read()
     except FileNotFoundError:
-        return render(request, '404.html', status=404)  # assuming you have a 404.html template
+       file_name = "mp_not_found.md"  # You can set a default file name here if you like
+       md_content = file.read()
 
     # Convert to HTML
     html_content = markdown.markdown(md_content)
