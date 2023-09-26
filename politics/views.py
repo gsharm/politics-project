@@ -1,11 +1,15 @@
 # views.py
 import markdown
+import os
+
 from django.http import HttpResponse
 
 def serve_markdown_index(request):
-    # Read markdown content
-    with open("index.html", "r") as file:
-        html_content = file.read()
+    mps = list_mps()
+
+    # Convert list of MPs to HTML links
+    html_links = [f'<a href="/mps/{mp}/">{mp.replace("-", " ").title()}</a><br>' for mp in mps]
+    html_content = "<h2>List of MPs:</h2>" + "\n".join(html_links)
 
     return HttpResponse(html_content)
 
@@ -29,3 +33,8 @@ def serve_markdown_mp(request, mp_name=None):
     html_content = markdown.markdown(md_content)
 
     return HttpResponse(html_content)
+
+def list_mps():
+    """List all the markdown files in the mps/ directory."""
+    files = os.listdir('mps/')
+    return [f[:-3] for f in files if f.endswith('.md')]
