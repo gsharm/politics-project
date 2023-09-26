@@ -15,7 +15,7 @@ def serve_markdown_index(request):
 def serve_markdown_mp(request, mp_name=None):
     # Determine the markdown filename based on the URL path
     if mp_name:
-        file_name = f"{mp_name}.md"
+        file_name = f"mps/{mp_name}.md"
     else:
         file_name = "not_found.md"  # You can set a default file name here if you like
 
