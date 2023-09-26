@@ -6,9 +6,9 @@ from django.http import HttpResponse
 
 def serve_markdown_index(request):
     mps = list_mps()
-    html_links = [f'<a href="/mps/{mp}/">{mp.replace("-", " ").title()}</a><br>' for mp in mps]
-    
-    full_html_content = f'''
+    html_links = '\n'.join([f'<a href="/mps/{mp}/">{mp.replace("-", " ").title()}</a><br>' for mp in mps])
+
+    full_html_content = f"""
     <!DOCTYPE html>
     <html>
         <head>
@@ -17,10 +17,10 @@ def serve_markdown_index(request):
         </head>
         <body>
             <h2>List of MPs:</h2>
-            {"\n".join(html_links)}
+            {html_links}
         </body>
     </html>
-    '''
+    """
     return HttpResponse(full_html_content)
 
 def serve_markdown_mp(request, mp_name=None):
