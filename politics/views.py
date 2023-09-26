@@ -5,16 +5,23 @@ import os
 from django.http import HttpResponse
 
 def serve_markdown_index(request):
-    return HttpResponse('''
+    mps = list_mps()
+    html_links = [f'<a href="/mps/{mp}/">{mp.replace("-", " ").title()}</a><br>' for mp in mps]
+    
+    full_html_content = f'''
+    <!DOCTYPE html>
     <html>
         <head>
-            <title>Test Title</title>
+            <link rel="stylesheet" type="text/css" href="/static/css/styles.css">
+            <title>MP Index</title>
         </head>
         <body>
-            Test Body
+            <h2>List of MPs:</h2>
+            {"\n".join(html_links)}
         </body>
     </html>
-    ''')
+    '''
+    return HttpResponse(full_html_content)
 
 def serve_markdown_mp(request, mp_name=None):
     # Determine the markdown filename based on the URL path
