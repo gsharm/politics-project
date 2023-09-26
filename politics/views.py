@@ -24,7 +24,7 @@ def serve_markdown_index(request):
     return HttpResponse(full_html_content)
 
 def serve_markdown_mp(request, mp_name=None):
-    # Determine the markdown filename based on the URL path
+    # Determine the markdown filename based on the URL path 
     if mp_name:
         file_name = f"mps/{mp_name}.md"
     else:
