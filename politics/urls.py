@@ -19,6 +19,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('mps/<slug:mp_name>/', views.serve_markdown, name='serve_markdown_slug'), 
-    path('', views.serve_markdown, name='serve_markdown_index'),
+    path('mps/<slug:mp_name>/', views.serve_markdown_mp, name='serve_markdown_slug'), 
+    path('', views.serve_markdown_index, name='serve_markdown_index'),
 ]
