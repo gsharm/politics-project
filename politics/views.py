@@ -25,7 +25,8 @@ def serve_markdown_mp(request, mp_name=None):
             md_content = file.read()
     except FileNotFoundError:
        file_name = "mp_not_found.md"  # You can set a default file name here if you like
-       md_content = file.read()
+       with open(file_name, "r") as file:
+            md_content = file.read()
 
     # Convert to HTML
     html_content = markdown.markdown(md_content)
