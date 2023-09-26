@@ -19,7 +19,7 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('/mps/kier-starmer', views.serve_markdown, name='serve_markdown'),
-    path('/mps/rishi-sunak', views.serve_markdown, name='serve_markdown'),
+    path('mps/kier-starmer', views.serve_markdown, name='serve_markdown'),
+    path('mps/rishi-sunak', views.serve_markdown, name='serve_markdown'),
     path('', views.serve_markdown, name='serve_markdown'),
 ]
