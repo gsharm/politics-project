@@ -4,11 +4,8 @@ from django.http import HttpResponse
 
 def serve_markdown_index(request):
     # Read markdown content
-    with open("index.md", "r") as file:
-        md_content = file.read()
-
-    # Convert to HTML
-    html_content = markdown.markdown(md_content)
+    with open("index.html", "r") as file:
+        html_content = file.read()
 
     return HttpResponse(html_content)
 
