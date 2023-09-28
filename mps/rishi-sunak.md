@@ -1,6 +1,7 @@
 # Rishi Sunak
 
-![Rishi](https://cdn.britannica.com/13/235013-050-18993EB9/Chancellor-of-the-Exchequer-Rishi-Sunak-2022.jpg)
+<img src="https://cdn.britannica.com/13/235013-050-18993EB9/Chancellor-of-the-Exchequer-Rishi-Sunak-2022.jpg" alt="Rishi Sunak" width="200px" style="border-radius: 8%;">
+
 
 ## Key policy notes:
 

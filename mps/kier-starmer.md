@@ -1,6 +1,6 @@
 # Kier Starmer
 
-![Kier](https://members-api.parliament.uk/api/Members/4514/Portrait?cropType=ThreeFour)
+<img src="https://members-api.parliament.uk/api/Members/4514/Portrait?cropType=ThreeFour" alt="Kier Starmer" width="200px" style="border-radius: 8%;">
 
 ## Key policy notes:
 
